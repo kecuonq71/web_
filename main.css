@@ -1,0 +1,803 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/*tai*/
+.top {
+    background-color: white;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    border-bottom: solid 1px rgba(167, 165, 165, 0.211);
+    padding: 0 10%;
+    z-index: 100;
+}
+
+.top ul {
+    margin: 10px 0;
+}
+
+.top-left {
+    position: absolute;
+}
+
+.top-left li {
+    display: inline-block;
+    padding: 0 13px;
+    border-right: solid 1px rgba(167, 165, 165, 0.211);
+}
+
+.top-left li i {
+    color: #f7941d;
+}
+
+.top-right {
+    right: 150px;
+    position: absolute;
+}
+
+.top-right li {
+    display: inline-block;
+    padding: 0 13px;
+    border-right: solid 1px rgba(167, 165, 165, 0.211);
+    position: relative;
+}
+
+.top-right li a {
+    text-decoration: none;
+    color: black;
+}
+
+.top-right li a:hover {
+    color: orange;
+}
+
+.top-right li i {
+    color: #f7941d;
+}
+
+.header {
+    display: flex;
+    height: 140px;
+    padding: 0 0;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logo-page {
+    position: relative;
+    width: 160px;
+    height: 80px;
+}
+
+.search-bar-top {
+    display: flex;
+    border: 2px solid #ececec;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    height: 52px;
+    margin: auto;
+}
+
+
+
+
+
+#slv {
+    border: none;
+    border-right: 2px solid #eee;
+    border-radius: 5px 0 0 5px;
+    height: 50px;
+    width: 170px;
+    margin: 0;
+    text-transform: capitalize;
+    line-height: 50px;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    outline: none;
+}
+
+.search {
+    border: none;
+    height: 50px;
+    width: 55%;
+    padding: 0 25px 0 20px;
+    outline: none;
+}
+
+.bt {
+    border: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 0 5px 5px 0;
+    background-color: black;
+    color: white;
+}
+
+.bt:hover {
+    background-color: orange;
+    cursor: pointer;
+}
+
+.logo {
+    height: auto;
+    max-width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.right-bar i {
+    margin-right: 30px;
+}
+
+.profile i {
+    font-size: 20px;
+}
+
+.profile i:hover {
+    color: orange;
+}
+
+.navbar {
+    display: flex;
+    justify-content: left;
+    padding: 0 0 0 100px;
+    background-color: rgb(43, 42, 42);
+    height: 69.px;
+    width: 100%;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: orange;
+    color: white;
+    padding: 20.8px;
+    font-size: 18px;
+    font-weight: 500px;
+    border: none;
+    margin: 0 5px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    left: 5px;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    width: 200px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+    color: orange;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: orange;
+}
+
+.nav-right {
+    padding: 20.8px;
+    font-size: 18px;
+    font-weight: 500px;
+    border: none;
+    margin: 0 5px;
+}
+
+.nav-right a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-right:hover {
+    background-color: orange;
+    transition-delay: 10.5ms;
+}
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text1 {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.sale_title h2 {
+    font-size: 25px;
+    font-weight: 700;
+    position: relative;
+}
+
+.sale_title h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 70px;
+    height: 3px;
+    background-color: #F7941D;
+}
+
+.item {
+    border: 1px solid #EEEEEE;
+    padding: 5px;
+}
+
+.overlay {
+    position: relative;
+}
+
+.overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #42464642;
+    opacity: 0;
+}
+
+.overlay:hover::before {
+    z-index: 4;
+    opacity: 1;
+    transition: all 0.3s;
+}
+
+.detail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+#detail {
+    display: none;
+}
+
+.sale_img {
+    position: relative;
+    z-index: 0;
+}
+
+.sale_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.sale_decs {
+    font-weight: 700;
+}
+
+.sale_price {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 30px;
+    color: white;
+    background-color: #F7941D;
+}
+
+.cart {
+    font-size: 30px;
+    list-style: none;
+    border-bottom: none;
+}
+
+/* sale */
+
+
+/* blog */
+#blog {
+    padding: 80px 0;
+}
+
+#blog .blog_text h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #2c2d3f;
+    position: relative;
+}
+
+#blog .blog_text h2::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 1.5px;
+    background-color: #F7941D;
+    bottom: -10px;
+    left: 47%;
+}
+
+.blog_card .card {
+    border: none;
+}
+
+.blog_card .card:hover {
+    box-shadow: 0 10px 10px #0000000a;
+}
+
+.blog_card .card .card-body p {
+    color: #777777;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.blog_card .card .card-body .card-text {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+}
+
+.blog_card .card .card-body a:hover {
+    color: #F7941D;
+}
+
+/* blog */
+/* feedback */
+#feedback {
+    background-color: #F6F7FB;
+    padding: 30px 0;
+}
+
+.feedback_content {
+    display: flex;
+}
+
+.feedback_content .feedback_icon i {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+}
+
+.feedback_text h5 {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.feedback_text p {
+    color: #777777;
+}
+
+/* feedback */
+/* submit */
+#submit {
+    padding: 100px 0;
+}
+
+#submit .text h5 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#submit .text p {
+    color: #777777;
+}
+
+#submit .text p span {
+    color: #F7941D;
+}
+
+.submit_content input {
+    height: 50px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.submit_content button {
+    background-color: #F7941D;
+    color: white;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.submit_content button:hover {
+    background-color: #333333;
+    color: white;
+}
+
+/* submit */
+/* footer */
+footer {
+    background-color: black;
+    color: white;
+}
+
+.footer_content {
+    display: grid;
+    grid-template-columns: 40% 18% 18% 24%;
+}
+
+.title {
+    margin: 30px 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.eshop {
+    padding-right: 30px;
+}
+
+.eshop .contact {
+    text-decoration: none;
+    color: #F7941D;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.eshop .text {
+    margin-bottom: 10px;
+}
+
+.eshop p {
+    margin: 0;
+}
+
+.link {
+    padding: 0;
+    line-height: 40px
+}
+
+.link li {
+    list-style: none;
+    font-size: 14px;
+}
+
+.link li a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+    left: 0;
+}
+
+.link li a:hover {
+    color: #F7941D;
+    left: 10px;
+}
+
+
+.icon a {
+    text-decoration: none;
+}
+
+.icon a i {
+    color: white;
+    margin-right: 20px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.icon a i:hover {
+    color: #F7941D;
+}
+
+.icon .double_icon {
+    margin-right: 20px;
+
+}
+
+.icon .double_icon i {
+    margin: 0 !important;
+    font-size: 7px;
+    width: 3px;
+}
+
+.footer_end {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_end p a {
+    text-decoration: underline;
+    color: white;
+}
+
+/* footer */
+
+
+/* Nghia */
+/* cart */
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.table .thead-dark {
+    color: inherit;
+    border-color: rgb(43, 42, 42);
+}
+
+.section-title::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    top: 50%;
+    left: 0;
+    border-top: 1px dashed #bec5cb;
+    z-index: -1;
+}
+
+.bg-secondary {
+    background-color: #F5F5F5 !important;
+}
+
+.input-group-append .btn {
+    position: relative;
+    display: flex;
+}
+
+.col-lg-4 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+#pay-Modal {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-style: dashed;
+    border-color: rgb(26 148 255);
+    padding: 20px 40px;
+    width: 60vh;
+    z-index: 100011111;
+}
+
+#pay-Modal h3 {
+    text-align: center;
+    color: rgb(26 148 255);
+}
+
+#pay-Modal .iconPay,
+.btnPay {
+    text-align: center;
+    margin: 10px 0;
+}
+
+#pay-Modal i {
+    font-size: 35px;
+    color: gold;
+}
+
+#pay-Modal button {
+    text-align: center;
+    padding: 5px 8px;
+    background-color: darkgoldenrod;
+    color: honeydew;
+}
+
+#pay-Modal h4 {
+    color: black;
+    font-size: 24px;
+    text-align: center;
+
+}
+
+#pay-Modal .modal-body {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* curentpage */
+.content_page ul {
+    display: flex;
+}
+
+.content_page ul li {
+    list-style: none;
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    text-align: center;
+    line-height: 30px;
+}
+
+.number_page {
+    display: flex;
+}
+
+/* table của chi tiết sp */
+#detail .table {
+    width: 100% !important;
+}
+
+@media (max-width: 419px) {
+    .header {
+        margin-top: 100px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .blog_card .card {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 666px) {
+    .header {
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    #detail {
+        margin: 0;
+        max-width: 500px !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .logo-page {
+        position: relative;
+    }
+
+    .logo {
+        position: absolute;
+        width: 100px;
+        height: 50px !important;
+        top: 30%;
+    }
+}
+
+@media (max-width: 960px) {
+    .header {
+        margin-top: 20px;
+        display: block;
+    }
+
+    .navbar {
+        margin-top: 100px;
+    }
+}
+
+
+
+@media (max-width: 1060px) {
+    .top {
+        display: block !important;
+        position: relative;
+    }
+
+    .top-left {
+        position: relative;
+        align-items: center;
+    }
+}
