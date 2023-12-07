@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Help</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- font cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- css  -->
+<link rel="stylesheet" href="./main.css">
+  </head>
+  <body>
+        <!-- header -->
+        <div class="top">
+            <div class="top-left">
+                <ul>
+                    <li style="border-left:solid 1px rgba(167, 165, 165, 0.211);"><i class="fa-solid fa-phone"></i> + 0348
+                        696 887</li>
+                    <li><i class="fa-solid fa-envelope"></i></i> abc@shop.com</li>
+                </ul>
+            </div>
+            <div class="top-right">
+                <ul>
+                    <li style="border-left:solid 1px rgba(167, 165, 165, 0.211);"><i class="fa-solid fa-location-dot"></i><a
+                            href="https://goo.gl/maps/9PzjWHKfLWHBk9Lc9"> Store Location</a></li>
+                    <li><i class="fa-regular fa-clock"></i> <a href="#">Daily Deal</a></li>
+                    <li><i class="fa-solid fa-user"></i> <a href="#" id="account">My account</a></li>
+                    <li id="log"><i class="fa-solid fa-power-off"></i> <a href="login.html" id="logout">Login</a></li>
+                </ul>
+        
+            </div>
+        </div>
+        <!-- search -->
+        <div class="header">
+            <div class="logo-page mx-3">
+                <img style="height: 100%" class="logo" src="./img/LS (1).png" alt="logo">
+            </div>
+            <div class="search-bar ">
+                <div class="search-bar-top">
+                    <div class="nice-select">
+                        <select name="select-bar" id="slv" onchange="searchByCategory()">
+                            <option value="">All Category</option>
+                            <option value="LIFESTYLE">LIFESTYLE</option>
+                            <option value="JORDAN">JORDAN</option>
+                            <option value="BASEKETBALL">BASEKETBALL</option>
+                        </select>
+                    </div>
+                    <input class="search" onchange="search()" type="search" name="search" placeholder="Tim kiem san pham ...">
+                    <a href="#listProduct">
+                        <button class="bt" onclick="search()">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div id="searchByPrice">
+                <select id="pr" class="form-control" onchange="searchByPrice()">
+                    <option value="">Chọn giá</option>
+                    <option value="1">Từ 50$ -> 100$</option>
+                    <option value="2">Từ 100$ -> 150$</option>
+                    <option value="3">Từ 150$ trở lên</option>
+                </select>
+            </div>
+            <div class="profile">
+                <div class="right-bar">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        <i class="fa-solid fa-cart-shopping" id="cart"></i>
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Giỏ hàng</h5>
+        
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table">
+                                        <tr>
+                                            <th>Hình ảnh</th>
+                                            <th>Tên giày</th>
+                                            <th>Loại giày</th>
+                                            <th>Giá</th>
+                                            <th>Số lượng</th>
+                                        </tr>
+                                        <tbody id="cart-item"></tbody>
+                                    </table>
+                                    <div style="text-align: right">
+                                        <div style="color:red" class="my-3">Tổng số tiền:
+                                            <span id="tongTien"></span>$
+                                        </div>
+                                        <button class="btn btn-warning" id="btn-purchase">
+                                            Thanh toán
+        
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CATEGORIES -->
+        <div class="navbar" id="nav">
+        
+            <div class="dropdown">
+                <button class="dropbtn"><i class="fa-solid fa-bars"></i>&emsp;Catagories &emsp;</i></button>
+                <div class="dropdown-content">
+                    <a href="http://127.0.0.1:5500/index.html">Men</a>
+                    <a href="http://127.0.0.1:5500/index.html">Women</a>
+                    <a href="http://127.0.0.1:5500/index.html">Sales</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <a href="http://127.0.0.1:5500/index.html">Home</a>
+            </div>
+            <div class="nav-right">
+                <a href="http://127.0.0.1:5500/help.html">Help</a>
+            </div>
+            <div class="nav-right">
+                <a href="#">Contast Us</a>
+            </div>
+        
+        </div>
+        <div class="container">
+            <h2 class="gl-heading title___1no5t withhtml___2vPJM gl-heading--m" id="cauhoi">CÁC CÂU HỎI THƯỜNG GẶP</h2>
+       
+        <div class="row">
+            <div id="questions" class="col-sm-4">
+                <ul class="list-group">
+                    <li class="list-group-item"><a>LÀM CÁCH NÀO TÔI CÓ THỂ TRẢ HÀNG?</a></li>
+                    <li class="list-group-item"><a>KHI NÀO TÔI SẼ ĐƯỢC HOÀN TIỀN?</a></li>
+                    <li class="list-group-item"><a>TẠI SAO ĐƠN HÀNG TRỰC TUYẾN CỦA TÔI BỊ HỦY?</a></li>
+                    <li class="list-group-item"><a>TÔI CÓ THỂ THAY ĐỔI ĐỊA CHỈ GIAO HÀNG HOẶC THAY ĐƠN HÀNG NẾU CHƯA ĐƯỢC GIAO HÀNG KHÔNG?</a></li>
+                    <li class="list-group-item"><a>LÀM THẾ NÀO ĐỂ TÔI THEO DÕI ĐƠN HÀNG HOẶC TÌNH TRẠNG GIAO HÀNG CỦA TÔI?</a></li>
+                    <li class="list-group-item"><a>TẠI SAO PHIẾU GIẢM GIÁ CỦA TÔI KHÔNG SỬ DỤNG ĐƯỢC?</a></li>
+                    <li class="list-group-item"><a>ĐIỀU GÌ XẢY RA VỚI PHIẾU GIẢM GIÁ CỦA TÔI NẾU TÔI TRẢ LẠI HÀNG HOẶC NẾU (MỘT PHẦN) ĐƠN HÀNG CỦA TÔI BỊ HỦY?</a></li>
+                    <li class="list-group-item"><a>ĐIỀU GÌ XẢY RA NẾU TÔI KHÔNG THỂ TÌM THẤY (CÁC) SẢN PHẨM TÔI ĐANG TÌM KIẾM?</a></li>
+                    <li class="list-group-item"><a>TÔI PHẢI LÀM GÌ NẾU CÂU HỎI CỦA TÔI KHÔNG ĐƯỢC ĐỀ CẬP Ở ĐÂY?</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-8" id="fillanswer">
+                    <div id="answer">
+                        <strong>
+                        Chân thành cảm ơn bạn đã ghé thăm trang web của chúng tôi!
+                        <br>
+                        Chúng tôi trân trọng sự quan tâm và ủng hộ của bạn. Nếu có bất kỳ ý kiến đóng góp hoặc phản hồi nào, hãy đừng ngần ngại
+                        liên hệ với chúng tôi. Chúng tôi luôn sẵn lòng lắng nghe và phục vụ bạn tốt nhất có thể.
+                        <br>
+                        Cảm ơn bạn một lần nữa và chúc bạn một ngày vui vẻ và thành công!
+                        <br>
+                        Trân trọng,
+                        </strong>
+                    </div>
+            </div>
+        </div>
+        <div id="suporttopics">
+            <div>
+
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <footer>
+        <div class="container footer_content">
+            <div class="eshop">
+                <div class="title">
+                    <a href="#">
+                        <img src="./img/logo2.png" alt="logo2">
+                    </a>
+                </div>
+                <p class="text">Liên hệ với chúng tôi để nắm thông tin về mẫu giày mới nhất với giá cả phải chăng nhất
+                    thị trường</p>
+                <p>Got Question? Call us 24/7
+                </p>
+                <a href="#" class="contact">+0123456789</a>
+            </div>
+            <div class="infomation">
+                <h4 class="title">Infomation</h4>
+                <ul class="link">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Fag</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Help</a></li>
+    
+                </ul>
+            </div>
+            <div class="customer">
+                <h4 class="title">Customer Service</h4>
+                <ul class="link">
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">Money-back</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="getInTuch">
+                <h4 class="title">Get In Tuch</h4>
+                <p>Thành phố Hồ Chí Minh</p>
+                <p>273 An Dương Vương p14 q5
+                </p>
+                <p>eshop@gmail.com
+                </p>
+                <p>+0123 456 789
+                </p>
+                <div class="icon">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="double_icon">
+                        <i class="fa-solid fa-circle"></i>
+                        <i class="fa-regular fa-circle"></i>
+                    </a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+    
+        </div>
+        <div class="container mt-5">
+            <hr style="background-color: #535353; width: 100%;">
+            <div class="footer_end">
+                <div>
+                    <p>Copyright © 2020 <a href="#" target="_blank">Wpthemesgrid</a>- All Rights Reserved.</p>
+                </div>
+                <div>
+                    <img src="./img/payments.png" alt="payments" style="width: 100%">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="help.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
