@@ -186,32 +186,77 @@ let products = {
     ],
 };
 
+// function displayProducts() {
+//     const items = products.data.reduce((result, product) => {
+//         return result + `
+//              <div class="col-sm-12 d-flex my-3 item col-md-6 col-lg-4">
+//                 <div class="overlay">
+//                      <img class ="sale_img" src="${product.image}" alt="${product.id} width="200px" height="200px"">
+//                 <a href="#detail">   <button class ="btn btn-danger detail" onclick="detailItem('${product.productName}')">Chi tiết</button></a>
+//                 </div>
+//                  <div class="sale_text">
+//                     <div>
+//                          <p class = "sale_decs">${product.productName}</p>
+//                          <p class = "sale_price">${product.price}$</p>
+//                          <span>
+//                             <button class ="btn btn-success" onclick="addToCart('${product.productName}')">
+//                                 <i class="fa-solid fa-bag-shopping"></i> Add Cart
+//                             </button>
+//                         </span>
+//                     </div>
+//                  </div>
+//              </div>
+//         `
+//     }, "")
+//     document.querySelector(".product_item").innerHTML = items;
+// }
+// displayProducts()
 
-function displayProducts() {
-    const items = products.data.reduce((result, product) => {
-        return result + `
-             <div class="col-sm-12 d-flex my-3 item col-md-6 col-lg-4">
-                <div class="overlay">
-                     <img class ="sale_img" src="${product.image}" alt="${product.id} width="200px" height="200px"">
-                <a href="#detail">   <button class ="btn btn-danger detail" onclick="detailItem('${product.productName}')">Detail</button></a>
-                </div>
-                 <div class="sale_text">
-                    <div>
-                         <p class = "sale_decs">${product.productName}</p>
-                         <p class = "sale_price">${product.price}$</p>
-                         <span>
-                            <button class ="btn btn-success" onclick="addToCart('${product.productName}')">
-                                <i class="fa-solid fa-bag-shopping"></i> Add Cart
-                            </button>
-                        </span>
+function displayProductsFromLocalStorage() {
+    // Lấy danh sách sản phẩm từ localStorage
+    const storedProducts = localStorage.getItem('product');
+
+    // Kiểm tra xem có sản phẩm trong localStorage không
+    if (storedProducts) {
+        // Chuyển chuỗi JSON thành đối tượng JavaScript
+        const products = JSON.parse(storedProducts);
+
+        // Tạo chuỗi HTML để hiển thị sản phẩm
+        const items = products.reduce((result, product) => {
+            return result + `
+                <div class="col-sm-12 d-flex my-3 item col-md-6 col-lg-4">
+                    <div class="overlay">
+                        <img class ="sale_img" src="${product.image}" alt="${product.id}" width="200px" height="200px">
+                        <a href="#detail"><button class ="btn btn-danger detail" onclick="detailItem('${product.productName}')">Chi tiết</button></a>
+
                     </div>
-                 </div>
-             </div>
-        `
-    }, "")
-    document.querySelector(".product_item").innerHTML = items;
+                    <div class="sale_text">
+                        <div>
+                            <p class="sale_decs">${product.productName}</p>
+                            <p class="sale_price">${product.price}$</p>
+                            <span>
+                                <button class="btn btn-success" onclick="addToCart('${product.productName}')">
+                                    <i class="fa-solid fa-bag-shopping"></i> Add Cart
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }, "");
+
+        // Hiển thị sản phẩm trên trang web
+        document.querySelector(".product_item").innerHTML = items;
+    } else {
+        // Hiển thị thông báo nếu không có sản phẩm trong localStorage
+        document.querySelector(".product_item").innerHTML = "<p>Không có sản phẩm nào.</p>";
+    }
 }
-displayProducts()
+
+// Gọi hàm để hiển thị sản phẩm từ localStorage khi trang web được tải
+displayProductsFromLocalStorage();
+
+
 
 const search = () => {
     let input = document.querySelector(".search").value;
@@ -329,7 +374,7 @@ const detailItem = (item) => {
     document.getElementById("tbody").innerHTML = output;
 }
 
-localStorage.setItem("product", JSON.stringify(products.data));
+localStorage.setItem("products", JSON.stringify(products.data));
 
 let slideIndex = 0;
 showSlides();
@@ -363,8 +408,10 @@ if (json) {
     document.getElementById("logout").innerHTML = "Logout"
 }
 
-//
+
 const addToCart = (productName) => {
+    const storedProducts = localStorage.getItem('product');
+
     // if (!json) {
     //     alert("Vui lòng đang nhập trước khi mua hàng")
     //     return
@@ -385,6 +432,44 @@ const addToCart = (productName) => {
     }
     displayCart();
 }
+// const addToCart = (productName) => {
+//     // Lấy danh sách sản phẩm từ localStorage với key là 'product'
+//     const storedProducts = localStorage.getItem('product');
+
+//     // Kiểm tra xem có sản phẩm trong localStorage không
+//     if (storedProducts) {
+//         // Chuyển chuỗi JSON thành đối tượng JavaScript
+//         const products = JSON.parse(storedProducts);
+
+//         // Kiểm tra xem có thuộc tính 'data' trong đối tượng products hay không
+//         if (products && products.data) {
+//             // Lấy sản phẩm từ danh sách sản phẩm
+//             const item = products.data.filter((item) => item.productName === productName);
+
+//             // Kiểm tra trong giỏ hàng có sản phẩm hay chưa
+//             const index = cart.findIndex((product) => product === item[0]);
+
+//             // Nếu sản phẩm chưa có trong giỏ hàng, thêm vào
+//             if (index === -1) {
+//                 cart.push({ ...item[0], quantity: 1 });
+//             } else {
+//                 // Nếu sản phẩm đã có trong giỏ hàng, tăng số lượng lên 1
+//                 cart[index].quantity += 1;
+//             }
+
+//             // Hiển thị giỏ hàng sau khi thêm sản phẩm
+//             displayCart();
+//         } else {
+//             // Hiển thị thông báo nếu không có thuộc tính 'data' trong đối tượng products
+//             alert("Dữ liệu sản phẩm không hợp lệ.");
+//         }
+//     } else {
+//         // Hiển thị thông báo nếu không có sản phẩm nào trong localStorage
+//         alert("Không có sản phẩm nào trong cửa hàng.");
+//     }
+// };
+
+
 //hàm giảm số lượng sp
 const decrease = (productName) => {
     const index = cart.findIndex((item) => item.productName === productName);
@@ -414,6 +499,19 @@ function displayCart() {
              <td class= "phoneName">${product.productName}</td>
              <td>${product.category}</td>
              <td>${product.price * product.quantity}$</td>
+             <td>
+                <select id="size" name="size">
+                    <option value="36">36</option>
+                    <option value="37">37</option>
+                    <option value="38">38</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                    <option value="44">44</option>
+                </select>
+             </td>
 
              <td>
                 <button class ="btn btn-danger" onclick="decrease('${product.productName}')">-</button>
