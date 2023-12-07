@@ -79,9 +79,26 @@ function addProduct() {
     const productName = document.getElementById('tensp').value;
     const price = document.getElementById('price').value;
     const category = document.getElementById('brand').value;
-    const image = document.getElementById('myFile').value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+    const imageElement = document.getElementById('myFile');
+    const imageValue = imageElement ? imageElement.value : null;
+    const image = imageValue && imageValue.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/) ? imageValue.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1] : null;
     const quantity = 1;
     var products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [];
+    if(isEmpty(productName)) {
+        alert("Vui lòng nhập tên sản phẩm.");
+    }else if(isEmpty(price)){
+        alert("Vui lòng nhập giá sản phẩm.");
+    }else if(isNaN(price)){
+        alert("Giá sản phẩm phải là số.");
+    }else if(price <=0 ){
+        alert("Giá sản phẩm phải lớn hơn 0.");
+    }
+    if( image == null){
+        alert("Vui lòng chọn ảnh sản phẩm!")
+    }else {
+        console.log(image);
+    }
+    console.log(image);
     if (!isEmpty(productName) && !isEmpty(price) && !isEmpty(image) && !isEmpty(category)) {
         var pd1;
         pd1 = { productName: productName, category: category, price: price, image: "./img/" + image + "", quantity: 1 };
