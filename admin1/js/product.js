@@ -112,6 +112,7 @@ function addProduct() {
             duration: 3000
         });
         localStorage.setItem('products', JSON.stringify(products));
+        localStorage.setItem('product', JSON.stringify(products));
     }
 }
 
@@ -127,6 +128,7 @@ function showAE() {
     renderListEdit(1);
 }
 function renderListEdit(sotrang) {
+    
     var products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [];
     var sosp1trang = 4;
     var tongsotrang = Math.ceil(products.length / sosp1trang);
@@ -151,7 +153,7 @@ function renderListEdit(sotrang) {
                     </div>
                     <p class="ae-name">${products[i].productName}</p>
                     <p class="ae-price">${products[i].price}</p>
-                    <div class="act act-a" onclick="editAdmin(${products[i].productName});"><a href="#" class="ae-edit">Sửa</a></div>
+                    
                     <div class="act" onclick="deleteAdmin('${products[i].productName}');">
                         <i class="fas fa-trash-alt"></i>  
                     </div>
