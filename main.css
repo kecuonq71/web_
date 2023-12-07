@@ -801,3 +801,14 @@ footer {
         align-items: center;
     }
 }
+#cauhoi{
+    margin: 20px;
+}
+#fillanswer{
+    background-color:#bec5cb;
+}
+#answer{
+    margin: 50px;
+    font-family: 'Circular Std', sans-serif;
+    border-radius: 10px
+}
