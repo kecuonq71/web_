@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Luxury Store</title>
+    <title>Eshop</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,9 +24,9 @@
     <div class="top">
         <div class="top-left">
             <ul>
-                <li style="border-left:solid 1px rgba(167, 165, 165, 0.211);"><i class="fa-solid fa-phone"></i> + 0348
+                <li style="border-left:solid 1px rgba(167, 165, 165, 0.211);"><i class="fa-solid fa-phone"></i> +(84)348
                     696 887</li>
-                <li><i class="fa-solid fa-envelope"></i></i> abc@shop.com</li>
+                <li><i class="fa-solid fa-envelope"></i></i> eshop@gmail.com</li>
             </ul>
         </div>
         <div class="top-right">
@@ -56,7 +56,7 @@
                     </select>
                 </div>
                 <input class="search" onchange="search()" type="search" name="search"
-                    placeholder="Tim kiem san pham ...">
+                    placeholder="Search">
                 <a href="#listProduct">
                     <button class="bt" onclick="search()">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -66,10 +66,10 @@
         </div>
         <div id="searchByPrice">
             <select id="pr" class="form-control" onchange="searchByPrice()">
-                <option value="">Chọn giá</option>
-                <option value="1">Từ 50$ -> 100$</option>
-                <option value="2">Từ 100$ -> 150$</option>
-                <option value="3">Từ 150$ trở lên</option>
+                <option value="">Choose Price</option>
+                <option value="1">Under $100</option>
+                <option value="2">$100 -> $150</option>
+                <option value="3">$150+</option>
             </select>
         </div>
         <div class="profile">
@@ -83,7 +83,7 @@
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Giỏ hàng</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
 
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -92,26 +92,26 @@
                             <div class="modal-body">
                                 <table class="table">
                                     <tr>
-                                        <th>Hình ảnh</th>
-                                        <th>Tên giày</th>
-                                        <th>Loại giày</th>
-                                        <th>Giá</th>
-                                        <th>Số lượng</th>
+                                        <th>Image</th>
+                                        <th>Name Product</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
                                     </tr>
                                     <tbody id="cart-item"></tbody>
                                 </table>
                                 <div style="text-align: right">
-                                    <div style="color:red" class="my-3">Tổng số tiền:
+                                    <div style="color:red" class="my-3">Total:
                                         <span id="tongTien"></span>$
                                     </div>
                                     <button class="btn btn-warning" id="btn-purchase">
-                                        Thanh toán
+                                       Payment
 
                                     </button>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -227,7 +227,8 @@
                     <img class="card-img-top" src="./img/blog1.jpg" alt="blog1">
                     <div class="card-body">
                         <p class="card-title">22 July , 2022. Monday</p>
-                        <a href="" class="card-text">Thời trang và phong cách</a>
+                        <a href="" class="card-text">Fashion and Style</a>
+                        <br>
                         <a href="https://giayhaanh.vn/blogs/tin-thoi-trang/bi-kip-chon-giay-chuan-chinh-cho-chuyen-du-lich-them-hoan-hao"
                             class="btn btn-primary mt-3">Continue Reading</a>
                     </div>
@@ -235,8 +236,9 @@
                 <div class="card text-center col-sm-4" style="width: 18rem;">
                     <img class="card-img-top" src="./img/blog2.jpg" alt="blog2">
                     <div class="card-body">
-                        <p class="card-title">22 July , 2020. Monday</p>
-                        <a href="" class="card-text">Ngày hội khuyến mãi</a>
+                        <p class="card-title">22 October , 2022. Monday</p>
+                        <a href="" class="card-text">Promotion day</a>
+                        <br>
                         <a href="https://giayhaanh.vn/blogs/tin-thoi-trang/bi-kip-chon-giay-chuan-chinh-cho-chuyen-du-lich-them-hoan-hao"
                             class="btn btn-primary mt-3">Continue Reading</a>
                     </div>
@@ -244,8 +246,8 @@
                 <div class="card text-center col-sm-4" style="width: 18rem;">
                     <img class="card-img-top" src="./img/blog3.jpg" alt="blog3">
                     <div class="card-body">
-                        <p class="card-title">22 July , 2020. Monday</p>
-                        <a href="" class="card-text">Chuẩn bước đi, chuẩn phong cách</a>
+                        <p class="card-title">22 July , 2022. Monday</p>
+                        <a href="" class="card-text">Standard step, Standard style</a>
                         <a href="https://giayhaanh.vn/blogs/tin-thoi-trang/bi-kip-chon-giay-chuan-chinh-cho-chuyen-du-lich-them-hoan-hao"
                             class="btn btn-primary mt-3">Continue Reading</a>
                     </div>
@@ -326,11 +328,10 @@
                         <img src="./img/logo2.png" alt="logo2">
                     </a>
                 </div>
-                <p class="text">Liên hệ với chúng tôi để nắm thông tin về mẫu giày mới nhất với giá cả phải chăng nhất
-                    thị trường</p>
-                <p>Got Question? Call us 24/7
+                <p class="text">Contact us to get information about the latest shoe models at the most affordable prices on the market</p>
+                <p>Got Question? Call Us 24/7
                 </p>
-                <a href="#" class="contact">+0123456789</a>
+                <a href="#" class="contact">+(84)348 696 887</a>
             </div>
             <div class="infomation">
                 <h4 class="title">Infomation</h4>
@@ -355,12 +356,10 @@
             </div>
             <div class="getInTuch">
                 <h4 class="title">Get In Tuch</h4>
-                <p>Thành phố Hồ Chí Minh</p>
-                <p>273 An Dương Vương p14 q5
-                </p>
-                <p>eshop@gmail.com
-                </p>
-                <p>+0123 456 789
+                <p>Ho Chi Minh City</p>
+                <p>273 D. An Duong Vuong, Ward 3, District 5, Ho Chi Minh City</p>
+                <p>eshop@gmail.com</p>
+                <p>+(84)348 696 887
                 </p>
                 <div class="icon">
                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
@@ -395,12 +394,12 @@
 
         </div>
         <div class="modal-body">
-            <h5>Tổng giá tiền đơn hàng của bạn: <span id="totalcart"></span>$</h5>
-            <h3>Đơn hàng của bạn đã được thanh toán</h3>
+            <h5>Total price of your order: <span id="totalcart"></span>$</h5>
+            <h3>Your order has been paid</h3>
             <div class="iconPay">
                 <i class="fa-regular fa-circle-check"></i>
             </div>
-            <div data-dimiss="pay-Modal"><button onclick="end()">Kết thúc</button></div>
+            <div data-dimiss="pay-Modal"><button onclick="end()">Finish</button></div>
         </div>
     </div>
     <script src="./main.js"></script>

@@ -23,52 +23,51 @@
         <form action="#">
             <div class="form-content">
                 <div class="login-form">
-                    <div class="title">Đăng nhập</div>
+                    <div class="title">Login</div>
                     <div class="input-boxes">
-                        <div class="email-error" id="error1" value="123">(*) Tài khoản không tồn tại</div>
-                        <div class="email-error" id="error2">(*) Tài khoản hoặc mật khẩu không đúng</div>
+                        <div class="email-error" id="error1" value="123">(*) Account doesn't exist</div>
+                        <div class="email-error" id="error2">(*) Username or password is incorrect</div>
                         <div class="input-box">
                             <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Nhập vào Username của bạn" value="" id="l-user">
+                            <input type="text" placeholder="Username" value="" id="l-user">
                         </div>
                         <div class="input-box">
                             <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Nhập password" value="" id="l-pass">
+                            <input type="password" placeholder="Password" value="" id="l-pass">
                         </div>
                         <div class="text"><a href="#">Forgot password?</a></div>
-                        <div class="complete1" id="comp1">(*) Đăng nhập thành công</div>
+                        <div class="complete1" id="comp1">(*) Logged in successfully</div>
                         <div class="button input-box">
                             <input type="button" value="Submit" onclick="login()">
                         </div>
-                        <div class="text login-text">Bạn không có tài khoản? <label for="flip">Đăng ký ngay</label>
+                        <div class="text login-text">Don't have an account? <label for="flip">Create one now</label>
                         </div>
                     </div>
                 </div>
                 <div class="sigup-form">
-                    <div class="title">Đăng ký</div>
+                    <div class="title">Create account</div>
                     <div class="input-boxes">
                         <div class="input-box">
                             <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Nhập vào tên của bạn" value="" id="username">
+                            <input type="text" placeholder="Username " value="" id="username">
                         </div>
-                        <div class="signup-username" id="su-name">(*) Không được để trống UserName</div>
+                        <div class="signup-username" id="su-name">(*) Username can't be left blank</div>
                         <div class="input-box">
                             <i class="fas fa-envelope"></i>
-                            <input type="text" placeholder="Nhập vào Email của bạn" value="" id="email">
+                            <input type="text" placeholder="Email" value="" id="email">
                         </div>
-                        <div class="signup-email" id="er-email">(*) Email không hợp lệ</div>
-                        <div class="signup-email" id="su-email">(*) Không được để trống Email</div>
+                        <div class="signup-email" id="er-email">(*) Invalid email</div>
+                        <div class="signup-email" id="su-email">(*) Email can't be left blank</div>
                         <div class="input-box">
                             <i class="fas fa-lock"></i>
                             <input type="password" placeholder="Nhập password" value="" id="pass">
                         </div>
-                        <div class="signup-password" id="su-pass">(*) Không được để trống password</div>
-                        <div class="complete2" id="comp2">(*) Đăng ký thành công</div>
+                        <div class="signup-password" id="su-pass">(*) Password can't be left blank</div>
+                        <div class="complete2" id="comp2">(*) Sign up success</div>
                         <div class="button input-box">
                             <input type="button" value="Submit" onclick="signup()">
                         </div>
-                        <div class="text signup-text">Bạn đã có tài khoản? <label for="flip" onclick="chuyentab()">Đăng
-                                nhập ngay</label></div>
+                        <div class="text signup-text">Already have an account?  <label for="flip" onclick="chuyentab()">Log in</label></div>
                     </div>
                 </div>
             </div>

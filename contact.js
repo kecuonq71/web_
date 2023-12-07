@@ -6,7 +6,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     var phone = document.getElementById('phone').value;
     var message = document.getElementById('message').value;
 
-    if (name && email && phone && message) {
+    if (name && validateEmail(email) && validatePhone(phone) && message) {
 
         alert("Thank you for contacting us");
 
@@ -16,3 +16,13 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         alert("Please fill in all the fields");
     }
 });
+
+function validateEmail(email) {
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function validatePhone(phone) {
+    var phoneRegex = /^\d{10}$/;
+    return phoneRegex.test(phone);
+}

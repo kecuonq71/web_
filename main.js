@@ -186,9 +186,6 @@ let products = {
     ],
 };
 
-function addProductToProductList(newProduct) {
-    products.data.push(newProduct);
-}
 
 function displayProducts() {
     const items = products.data.reduce((result, product) => {
@@ -196,7 +193,7 @@ function displayProducts() {
              <div class="col-sm-12 d-flex my-3 item col-md-6 col-lg-4">
                 <div class="overlay">
                      <img class ="sale_img" src="${product.image}" alt="${product.id} width="200px" height="200px"">
-                <a href="#detail">   <button class ="btn btn-danger detail" onclick="detailItem('${product.productName}')">Chi tiết</button></a>
+                <a href="#detail">   <button class ="btn btn-danger detail" onclick="detailItem('${product.productName}')">Detail</button></a>
                 </div>
                  <div class="sale_text">
                     <div>
@@ -246,7 +243,7 @@ const showProductAfterSearch = (items) => {
         <div class="col-sm-12 d-flex my-3 item col-md-6 col-lg-4">
             <div class="overlay">
                 <img class="sale_img" src="${product.image}" alt="${product.id}" width="200px" height="200px">
-                <a href="#detail"><button class="btn btn-danger detail" onclick="detailItem('${product.productName}')">Chi tiết</button></a>
+                <a href="#detail"><button class="btn btn-danger detail" onclick="detailItem('${product.productName}')">Detail</button></a>
             </div>
             <div class="sale_text">
                 <div>
@@ -289,40 +286,40 @@ const detailItem = (item) => {
     const output = x.reduce((result, sp) => {
         return result + `
             <tr>
-            <th>Tên sản phẩm</th>
+            <th>Name product </th>
                 <td>${sp.productName}</td>
             </tr>
             <tr>
-            <th>Giá</th>
+            <th>Price</th>
                 <td>${sp.price}$</td>
             </tr>
             <tr>
-            <th>Hình ảnh</th>
+            <th>Image</th>
 
                  <td><img src="${sp.image}" width="60px" height="60px"></td>
             </tr>
             <tr>
-            <th>Xuất xứ</th>
+            <th>Origin</th>
 
                  <td>${sp.origin}</td>
             </tr>
             <tr>
-            <th>Thể loại</th>
+            <th>Category</th>
 
                  <td>${sp.category}</td>
             </tr>
             <tr>
-            <th>Ngày sản xuất</th>
+            <th>Date of production</th>
 
                  <td>${sp.dateOfManufacture}</td>
             </tr>
             <tr>
-            <th>Hãng sản xuất</th>
+            <th>Manudacturer</th>
 
                  <td>${sp.manufacturer}</td>
             </tr>
             <tr>
-            <th>Mô tả</th>
+            <th>Detail</th>
                   <td>  
                        ${sp.detail}
                  </td>
@@ -351,7 +348,7 @@ function showSlides() {
     }
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
-    setTimeout(showSlides, 2000); // Change image every 2 seconds
+    setTimeout(showSlides, 2000); 
 }
 
 

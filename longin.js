@@ -54,7 +54,7 @@ function login() {
         document.getElementById("error1").style.display = "none";
         document.getElementById("error2").style.display = "block";
     } else {
-        alert("Đăng nhập thành công")
+        alert("Logged in successfully")
         window.location.href = "index.html";
     }
 }
