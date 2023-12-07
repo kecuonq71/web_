@@ -152,7 +152,7 @@ function renderListEdit(sotrang) {
                     <p class="ae-name">${products[i].productName}</p>
                     <p class="ae-price">${products[i].price}</p>
                     <div class="act act-a" onclick="editAdmin(${products[i].productName});"><a href="#" class="ae-edit">Sửa</a></div>
-                    <div class="act" onclick="deleteAdmin(${products[i].productName});">
+                    <div class="act" onclick="deleteAdmin('${products[i].productName}');">
                         <i class="fas fa-trash-alt"></i>  
                     </div>
                 </div>`;
