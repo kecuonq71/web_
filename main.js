@@ -186,6 +186,10 @@ let products = {
     ],
 };
 
+function addProductToProductList(newProduct) {
+    products.data.push(newProduct);
+}
+
 function displayProducts() {
     const items = products.data.reduce((result, product) => {
         return result + `
@@ -214,18 +218,17 @@ displayProducts()
 
 const search = () => {
     let input = document.querySelector(".search").value;
-    // danh sách sp search theo category
-
-    console.log(searchByCategory);
     // danh sách sản phẩm search theo tên  
-    let searchByName = products.data.filter((item) => item.productName === input)
+    let searchByName = products.data.filter((item) => item.productName.toLowerCase().includes(input.toLowerCase()));
     if (!input) {
-        displayProducts()
-        return
+        displayProducts();
+        return;
     }
-    if (searchByName) {
-        showProductAfterSearch(searchByName)
-        return
+    if (searchByName.length > 0) {
+        showProductAfterSearch(searchByName);
+    } else {
+        // Hiển thị thông báo hoặc xử lý khi không tìm thấy sản phẩm
+        console.log("Không tìm thấy sản phẩm");
     }
 }
 const searchByCategory = () => {
@@ -241,26 +244,28 @@ const showProductAfterSearch = (items) => {
     const product = items.reduce((result, product) => {
         return result + `
         <div class="col-sm-12 d-flex my-3 item col-md-6 col-lg-4">
-        <div class="overlay">
-             <img class ="sale_img" src="${product.image}" alt="${product.id} width="200px" height="200px"">
-             <a href="#detail"><button class ="btn btn-danger detail" onclick="detailItem('${product.productName}')">Chi tiết</button></a>
-        </div>
-         <div class="sale_text">
-            <div>
-                 <p class = "sale_decs">${product.productName}</p>
-                 <p class = "sale_price">${product.price}$</p>
-                 <span>
-                    <button class ="btn btn-success" onclick="addToCart('${product.productName}')">
-                        <i class="fa-solid fa-bag-shopping"></i> Add Cart
-                    </button>
-                </span>
+            <div class="overlay">
+                <img class="sale_img" src="${product.image}" alt="${product.id}" width="200px" height="200px">
+                <a href="#detail"><button class="btn btn-danger detail" onclick="detailItem('${product.productName}')">Chi tiết</button></a>
             </div>
-         </div>
-     </div>
-        `
-    }, "")
+            <div class="sale_text">
+                <div>
+                    <p class="sale_decs">${product.productName}</p>
+                    <p class="sale_price">${product.price}$</p>
+                    <span>
+                        <button class="btn btn-success" onclick="addToCart('${product.productName}')">
+                            <i class="fa-solid fa-bag-shopping"></i> Add Cart
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        `;
+    }, "");
+
     document.querySelector(".product_item").innerHTML = product;
-}
+};
+
 const searchByPrice = () => {
     let index = +document.getElementById("pr").value;
     let newListProduct = [];
