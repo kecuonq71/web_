@@ -231,7 +231,7 @@
 
 .nav-right:hover {
     background-color: orange;
-    transition-delay: 10.5ms;
+    transition-delay: 1.s;
 }
 
 .slideshow-container {
@@ -716,6 +716,13 @@ footer {
     margin-top: 30px;
 }
 
+#sub-success,
+#sub-error {
+            display: none;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: center;
+        }
 /* curentpage */
 .content_page ul {
     display: flex;

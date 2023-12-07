@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Eshop</title>
+    <title>Luxury Store</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -137,7 +137,7 @@
             <a href="#">Services</a>
         </div>
         <div class="nav-right">
-            <a href="#">Contast Us</a>
+            <a href="contact.html">Contast Us</a>
         </div>
 
     </div>
@@ -226,7 +226,7 @@
                 <div class="card text-center col-sm-4" style="width: 18rem;">
                     <img class="card-img-top" src="./img/blog1.jpg" alt="blog1">
                     <div class="card-body">
-                        <p class="card-title">22 July , 2020. Monday</p>
+                        <p class="card-title">22 July , 2022. Monday</p>
                         <a href="" class="card-text">Thời trang và phong cách</a>
                         <a href="https://giayhaanh.vn/blogs/tin-thoi-trang/bi-kip-chon-giay-chuan-chinh-cho-chuyen-du-lich-them-hoan-hao"
                             class="btn btn-primary mt-3">Continue Reading</a>
@@ -264,7 +264,7 @@
                 <div class="feedback_text">
                     <h5>FREE SHIPING
                     </h5>
-                    <p>Orders over $100
+                    <p>Orders over $200
                     </p>
                 </div>
             </div>
@@ -308,12 +308,14 @@
     <div id="submit" class="text-center">
         <div class="text">
             <h5>NEWSLETTER</h5>
-            <p>Subscribe to our newsletter and get <span>10%</span> off your first purchase</p>
+            <p>Subscribe to our newsletter and get <span>15%</span> off your first purchase</p>
         </div>
         <div class="submit_content d-flex justify-content-center">
-            <input class="form-control w-25" type="email" placeholder="Your email address">
-            <button class="btn mx-2 ">SUBSCRIBE</button>
+            <input class="form-control w-25" type="email" id="email-Input" placeholder="Your email address">
+            <button class="btn mx-2" onclick="subscribeClicked()">SUBSCRIBE</button>
         </div>
+        <div id="sub-success">Subscription successful. Check your email for further instructions.</div>
+        <div id="sub-error">Email is already subscribed. Please enter a different email.</div>
     </div>
     <!-- footer -->
     <footer>

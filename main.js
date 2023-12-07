@@ -440,6 +440,33 @@ document.getElementById("btn-purchase").addEventListener("click", () => {
         displayCart();
     }
 });
+function isValidEmail(email) {
+    var emailRegex = /\S+@\S+\.\S+/;
+    return emailRegex.test(email);
+}
+
+// Biến này để lưu trữ địa chỉ email đã đăng ký
+var subscribedEmails = [];
+
+function subscribeClicked() {
+    var email = document.getElementById('email-Input').value;
+
+    if (isValidEmail(email)) {
+        if (!subscribedEmails.includes(email)) {
+            // Email chưa đăng ký, thêm vào danh sách và hiển thị thông báo thành công
+            subscribedEmails.push(email);
+            document.getElementById('sub-success').style.display = 'block';
+            document.getElementById('sub-error').style.display = 'none';
+        } else {
+            // Email đã đăng ký, hiển thị thông báo lỗi
+            document.getElementById('sub-error').style.display = 'block';
+            document.getElementById('sub-success').style.display = 'none';
+        }
+    } else {
+        // Email không hợp lệ, hiển thị thông báo lỗi
+        alert('Invalid email address. Please enter a valid email.');
+    }
+}
 
 function end() {
     document.getElementById("pay-Modal").style.display = "none";
