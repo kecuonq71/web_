@@ -228,6 +228,7 @@ function displayProductsFromLocalStorage() {
                     <div class="overlay">
                         <img class ="sale_img" src="${product.image}" alt="${product.id}" width="200px" height="200px">
                         <a href="#detail"><button class ="btn btn-danger detail" onclick="detailItem('${product.productName}')">Chi tiết</button></a>
+
                     </div>
                     <div class="sale_text">
                         <div>
@@ -259,18 +260,17 @@ displayProductsFromLocalStorage();
 
 const search = () => {
     let input = document.querySelector(".search").value;
-    // danh sách sp search theo category
-
-    console.log(searchByCategory);
     // danh sách sản phẩm search theo tên  
-    let searchByName = products.data.filter((item) => item.productName === input)
+    let searchByName = products.data.filter((item) => item.productName.toLowerCase().includes(input.toLowerCase()));
     if (!input) {
-        displayProducts()
-        return
+        displayProducts();
+        return;
     }
-    if (searchByName) {
-        showProductAfterSearch(searchByName)
-        return
+    if (searchByName.length > 0) {
+        showProductAfterSearch(searchByName);
+    } else {
+        // Hiển thị thông báo hoặc xử lý khi không tìm thấy sản phẩm
+        console.log("Không tìm thấy sản phẩm");
     }
 }
 const searchByCategory = () => {
@@ -286,26 +286,28 @@ const showProductAfterSearch = (items) => {
     const product = items.reduce((result, product) => {
         return result + `
         <div class="col-sm-12 d-flex my-3 item col-md-6 col-lg-4">
-        <div class="overlay">
-             <img class ="sale_img" src="${product.image}" alt="${product.id} width="200px" height="200px"">
-             <a href="#detail"><button class ="btn btn-danger detail" onclick="detailItem('${product.productName}')">Chi tiết</button></a>
-        </div>
-         <div class="sale_text">
-            <div>
-                 <p class = "sale_decs">${product.productName}</p>
-                 <p class = "sale_price">${product.price}$</p>
-                 <span>
-                    <button class ="btn btn-success" onclick="addToCart('${product.productName}')">
-                        <i class="fa-solid fa-bag-shopping"></i> Add Cart
-                    </button>
-                </span>
+            <div class="overlay">
+                <img class="sale_img" src="${product.image}" alt="${product.id}" width="200px" height="200px">
+                <a href="#detail"><button class="btn btn-danger detail" onclick="detailItem('${product.productName}')">Detail</button></a>
             </div>
-         </div>
-     </div>
-        `
-    }, "")
+            <div class="sale_text">
+                <div>
+                    <p class="sale_decs">${product.productName}</p>
+                    <p class="sale_price">${product.price}$</p>
+                    <span>
+                        <button class="btn btn-success" onclick="addToCart('${product.productName}')">
+                            <i class="fa-solid fa-bag-shopping"></i> Add Cart
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        `;
+    }, "");
+
     document.querySelector(".product_item").innerHTML = product;
-}
+};
+
 const searchByPrice = () => {
     let index = +document.getElementById("pr").value;
     let newListProduct = [];
@@ -329,40 +331,40 @@ const detailItem = (item) => {
     const output = x.reduce((result, sp) => {
         return result + `
             <tr>
-            <th>Tên sản phẩm</th>
+            <th>Name product </th>
                 <td>${sp.productName}</td>
             </tr>
             <tr>
-            <th>Giá</th>
+            <th>Price</th>
                 <td>${sp.price}$</td>
             </tr>
             <tr>
-            <th>Hình ảnh</th>
+            <th>Image</th>
 
                  <td><img src="${sp.image}" width="60px" height="60px"></td>
             </tr>
             <tr>
-            <th>Xuất xứ</th>
+            <th>Origin</th>
 
                  <td>${sp.origin}</td>
             </tr>
             <tr>
-            <th>Thể loại</th>
+            <th>Category</th>
 
                  <td>${sp.category}</td>
             </tr>
             <tr>
-            <th>Ngày sản xuất</th>
+            <th>Date of production</th>
 
                  <td>${sp.dateOfManufacture}</td>
             </tr>
             <tr>
-            <th>Hãng sản xuất</th>
+            <th>Manudacturer</th>
 
                  <td>${sp.manufacturer}</td>
             </tr>
             <tr>
-            <th>Mô tả</th>
+            <th>Detail</th>
                   <td>  
                        ${sp.detail}
                  </td>
@@ -391,7 +393,7 @@ function showSlides() {
     }
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
-    setTimeout(showSlides, 2000); // Change image every 2 seconds
+    setTimeout(showSlides, 2000); 
 }
 
 
@@ -538,6 +540,29 @@ document.getElementById("btn-purchase").addEventListener("click", () => {
         displayCart();
     }
 });
+function isValidEmail(email) {
+    var emailRegex = /\S+@\S+\.\S+/;
+    return emailRegex.test(email);
+}
+
+var subscribedEmails = [];
+
+function subscribeClicked() {
+    var email = document.getElementById('email-Input').value;
+
+    if (isValidEmail(email)) {
+        if (!subscribedEmails.includes(email)) {
+            subscribedEmails.push(email);
+            document.getElementById('sub-success').style.display = 'block';
+            document.getElementById('sub-error').style.display = 'none';
+        } else {
+            document.getElementById('sub-error').style.display = 'block';
+            document.getElementById('sub-success').style.display = 'none';
+        }
+    } else {
+        alert('Invalid email address. Please enter a valid email.');
+    }
+}
 
 function end() {
     document.getElementById("pay-Modal").style.display = "none";
